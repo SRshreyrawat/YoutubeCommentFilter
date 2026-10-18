@@ -1,0 +1,62 @@
+#teacher-doubt-box {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 440px;
+  min-width: 280px;
+  min-height: 160px;
+  max-width: min(620px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
+  resize: both;
+  background: #ffffff;
+  border: 1px solid #d8dce2;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  color: #202124;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+}
+
+#teacher-doubt-box.is-dark { background: #202124; border-color: #4b4f55; color: #f1f3f4; }
+#teacher-doubt-box.is-expanded { width: min(520px, calc(100vw - 24px)); height: min(620px, calc(100vh - 24px)); }
+#teacher-doubt-box.is-collapsed { width: auto; min-width: 0; height: auto; min-height: 0; resize: none; }
+#teacher-doubt-box.is-collapsed #teacher-doubt-list { display: none; }
+
+#teacher-doubt-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding: 10px 10px 10px 14px;
+  background: #cc0000;
+  color: #ffffff;
+  cursor: grab;
+  user-select: none;
+}
+#teacher-doubt-header.is-dragging { cursor: grabbing; }
+#teacher-doubt-title { flex: 1 1 auto; overflow: hidden; font-size: 15px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.teacher-doubt-controls { display: flex; gap: 4px; }
+.teacher-doubt-button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+}
+.teacher-doubt-button:hover, .teacher-doubt-button:focus-visible { background: rgba(255,255,255,.2); outline: 2px solid #ffffff; outline-offset: 1px; }
+#teacher-doubt-list { flex: 1 1 auto; overflow-y: auto; padding: 10px; }
+.doubt-item { margin-bottom: 10px; padding: 10px; border-left: 4px solid #ff4500; border-radius: 6px; background: #f6f7f8; color: #202124; font-size: 14px; overflow-wrap: anywhere; }
+.is-dark .doubt-item { background: #303134; color: #f1f3f4; }
+.doubt-author { font-weight: 700; }

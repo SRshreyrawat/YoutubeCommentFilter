@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Teacher's Live Chat Filter",
+  "version": "1.0",
+  "description": "Isolates genuine student queries out of YouTube Live Chat streams instantly using Jev AI.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://youtube.com/*", "https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}
